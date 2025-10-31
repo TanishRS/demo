@@ -7,9 +7,10 @@
 #     print(x)
 
 nums="prasad"
-for x in reversed(nums):
-    print(x)
+# for x in reversed(nums):
+#     print(x)
 
-[print(x in nums)]
-print(len(nums))
+# [print(x in nums)]
+# print(len(nums))
 
+[print(x) for x in nums]
