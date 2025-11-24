@@ -5,8 +5,8 @@ class Human(ABC):
         print("talking..")
 
 class Man(Human):
-    def talk(self):
-        print('hmmm')
+    def walk(self):
+        print('walking')
 
 person=Man()
-person.talk()
+person.walk()
