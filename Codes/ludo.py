@@ -8,6 +8,7 @@ position = 0
 snakes = {17:7, 23:18, 36:4, 45:22, 57:16, 65:9, 79:41, 88:27, 91:56, 99:1}
 ladders = {3:22, 5:8, 11:26, 20:29, 27:56, 40:59, 44:79, 54:88}
 
+
 while position < 100:
     input("Press Enter to roll the dice: ")
 
