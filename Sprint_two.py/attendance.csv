@@ -1,0 +1,11 @@
+emp_id,date,status
+E001,2025-09-01,Present
+E001,2025-09-02,Absent
+E001,2025-09-03,Present
+E001,2025-09-04,Present
+E001,2025-09-05,Absent
+E002,2025-09-01,Present
+E002,2025-09-02,Present
+E002,2025-09-03,Absent
+E002,2025-09-04,Present
+E002,2025-09-05,Present
