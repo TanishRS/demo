@@ -1,0 +1,7 @@
+POST https://nexora-autmation.onrender.com/webhook-test/whatsapp-incoming
+Content-Type: application/json
+
+{
+  "from": "+919999999999",
+  "body": "hi"
+}
