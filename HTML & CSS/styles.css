@@ -1,0 +1,30 @@
+h1 {
+  color: red;
+  font-size: 80px;
+}
+
+p {
+  font-size: 18px;
+}
+
+body {
+  background-color: cyan;
+}
+
+.highlight{
+    font-size: 30px;
+    color: brown;
+}
+
+.highlight1{
+    background-color: blueviolet;
+}
+
+h1, p, body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*{
+    margin: 5px;
+    padding: 5px;
+}
