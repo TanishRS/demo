@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(10, 222, 255);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  
+    align-items: center;        
+    
+}
+
+.form-container {
+    background: rgb(248, 244, 244);
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+
+
+input:invalid:not(:placeholder-shown) {
+  border: 2px solid red;
+}
