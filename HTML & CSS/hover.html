@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li:last-child{
+            color: red;
+            font-weight: bold;
+        }
+
+        a{
+            color: blue;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        a:hover{
+            color: red;
+        }
+
+        a:visited{
+            color: purple;
+        }
+
+        input{
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            outline: none;
+            text-align: center;
+        }
+
+        button{
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: lightblue;
+            border: none;
+            cursor: pointer;
+        } 
+
+        button:hover{
+            background-color: blue;
+            color: white; 
+        }
+
+        button:active{
+            background-color: red;
+        }
+
+        input:focus{
+            border: 2px solid cyan;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>Visited Link</h3>
+    <a href="https://www.amazon.in/Machado-Hybrid-Hand-Sharpened-Mongolian-Leather/dp/B0D2S2DR36/?_encoding=UTF8&pd_rd_w=RBqXc&content-id=amzn1.sym.034a1514-1893-4388-be46-4e9d1ed02845&pf_rd_p=034a1514-1893-4388-be46-4e9d1ed02845&pf_rd_r=N7FF89K80QJGHMH2TSKZ&pd_rd_wg=f1XcE&pd_rd_r=0cd760aa-1d15-44cc-87b3-7b1f54268064&ref_=pd_hp_d_btf_LPDEALS&th=1">Visit Example Website</a>
+    <br><br>
+    <a href="https://bloxinformer.com/wikis/the-forge/the-forge-calculator/">dont visit</a>
+    <h1>Input Focus</h1>
+    <input type="text" placeholder="Click here to Focus!"> 
+    <h2>Button Hover</h2>
+    <button>Hover Me</button>
+
+    <h2>Fruits List</h2>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Mango</li>
+        <li>Orange</li>
+    </ul>
+</body>
+</html>
