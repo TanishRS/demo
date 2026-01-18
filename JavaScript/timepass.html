@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let itemQuantity = 5;
+        let itemPrice = 25;
+        let userBalance = 150;
+
+        let isPremiumMember = true;
+        let documentedValue = true;
+
+        let subTotal = itemQuantity * itemPrice;
+        document.write(`Subtotal: ${subTotal} is the total amount`);
+
+        let discount = 0;
+        let eligibleMemeber = (subTotal > 100) && isPremiumMember;
+        if(eligibleMemeber){
+            discount = subTotal * 0.10
+        }
+        let finalAmount = subTotal - discount
+        console.log(finalAmount)
+        document.write(`<br>Final Amount: ${finalAmount}`)
+    </script>
+</body>
+</html>;''
