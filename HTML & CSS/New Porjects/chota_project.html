@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chota Project.</title>
+    
+    <style>
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #0E1D21;
+        }
+        h3 {
+            color: rgb(26, 93, 127);
+        }
+        img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            border: 5px solid #122E34;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <h1>Chota Project</h1>
-    <h3>Profile Pe jana hai tho image click karo</h3>
-    <a target="_blank" href="https://www.linkedin.com/in/tanish-suvarna-599b42339/"><img width="200px" src="WhatsApp Image 2026-01-13 at 14.11.54 11.52.11 AM.jpeg" alt=""></a>
+        <h1>Tanish Suvarna</h1>
+    <h3>My Profile</h3>
+    <h4>(Click the Image)</h4>
+    <a target="_blank" href="https://www.linkedin.com/in/tanish-suvarna-599b42339/">
+        <img width="275px" height="350px" src="WhatsApp Image 2026-01-13 at 14.11.54 11.52.11 AM.jpeg">
+    </a>
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="3141207-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    </video>
 </body>
 </html>
