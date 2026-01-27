@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>McDonald's Meal Order</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        .box {
+            width: 350px;
+            padding: 20px;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        h2 {
+            color: #c62828;
+        }
+
+        input[type="button"] {
+            padding: 8px 20px;
+            background-color: #ffcc00;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>McDonald's Meal Plans</h2>
+
+        <form>
+            <input type="radio" name="meal" value="Burger Meal" data-price="199">
+            Burger Meal – ₹199 <br><br>
+
+            <input type="radio" name="meal" value="Pizza Meal" data-price="249">
+            Pizza Meal – ₹249 <br><br>
+
+            <input type="radio" name="meal" value="Family Meal" data-price="399">
+            Family Meal – ₹399 <br><br>
+
+            <input type="button" value="Place Order" onclick="showResult()">
+        </form>
+
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function showResult() {
+            let meals = document.getElementsByName("meal");
+            let selectedMeal = "";
+            let amount = 0;
+
+            for (let i = 0; i < meals.length; i++) {
+                if (meals[i].checked) {
+                    selectedMeal = meals[i].value;
+                    amount = meals[i].getAttribute("data-price");
+                }
+            }
+
+            if (selectedMeal === "") {
+                document.getElementById("result").innerHTML = "Please select a meal plan.";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Selected Meal Plan: " + selectedMeal + "<br>" +
+                    "Total Amount: ₹" + amount;
+            }
+        }
+    </script>
+
+</body>
+</html>
