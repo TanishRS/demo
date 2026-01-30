@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chota Project</title>
+
+<style>
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 5px #00ff00; }
+    50% { text-shadow: 0 0 20px #00ff00; }
+    100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+.title {
+    animation: glowPulse 2s infinite;
+    color: #00ff00;
+    letter-spacing: 5px;
+    font-family: "Courier New", monospace;
+}
+
+.subtitle {
+    color: #66ffcc;
+    letter-spacing: 3px;
+    text-shadow: 0 0 6px #00ff00;
+}
+
+.cta {
+    color: #00ffaa;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+    opacity: 0.6;
+}
+
+.cinema {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.4;
+    filter: hue-rotate(200deg);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 50, 0.35);
+    z-index: -1;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    min-height: 100vh;
+    color: white;
+}
+
+.profile {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.5);
+    transition: transform 0.3s;
+    border: 3px solid white
+}
+
+.profile:hover {
+    transform: scale(1.07);
+}
+
+audio {
+    margin-top: 20px;
+    filter: drop-shadow(0 0 10px #00ff00);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="title">SYSTEM_OVERRIDE</h1>
+<h3 class="subtitle">User: Tanish Suvarna // Status: Online</h3>
+<h4 class="cta">Execute Access_Protocol.exe</h4>
+
+<a target="_blank" href="https://www.linkedin.com/in/tanish-suvarna-599b42339/">
+    <img class="profile" width="275" height="350" src="Tanish.jpg">
+</a>
+
+<br><br>
+
+<audio src="your-music.mp3" controls loop></audio>
+
+<img class="cinema" src="https://preview.redd.it/absolute-cinema-v0-ga7pdod2xwhf1.jpg?width=640&crop=smart&auto=webp&s=91397b4df5c7cbfecfef33ae26aa2110ec802781">
+
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="VmGOu56tinzcAumv2uH06gr9SLk9e_G0MKeX3vVp0H981L0GmUtJw1tqZ2DyaFaDFfpoxiMJ4zxSf7_eLoC9gmPD5uJPFicYU_oEOeQ_QEkdslyIVujGcr8n_mSh7OEsb3Dy_PoqD9-AXhCewmX-ka-jH_T9GNzDpQrlauVmI5K54_nZew.mp3" type="video/mp4">
+</video>
+
+</body>
+</html>
