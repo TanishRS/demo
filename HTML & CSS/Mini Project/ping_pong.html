@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ping Pong Game</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    canvas {
+      background: #020617;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 20px #38bdf8;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="game" width="800" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+// Game objects
+const paddleHeight = 80;
+const paddleWidth = 10;
+
+const leftPaddle = {
+  x: 20,
+  y: canvas.height / 2 - paddleHeight / 2,
+  speed: 6
+};
+
+const rightPaddle = {
+  x: canvas.width - 30,
+  y: canvas.height / 2 - paddleHeight / 2,
+  speed: 6
+};
+
+const ball = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  radius: 7,
+  speedX: 5,
+  speedY: 5
+};
+
+// Controls
+const keys = {};
+
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
+
+// Draw functions
+function drawRect(x, y, w, h) {
+  ctx.fillStyle = "#e5e7eb";
+  ctx.fillRect(x, y, w, h);
+}
+
+function drawBall(x, y, r) {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = "#38bdf8";
+  ctx.fill();
+}
+
+function drawNet() {
+  for (let i = 0; i < canvas.height; i += 15) {
+    drawRect(canvas.width / 2 - 1, i, 2, 10);
+  }
+}
+
+// Game logic
+function movePaddles() {
+  if (keys["w"] && leftPaddle.y > 0) leftPaddle.y -= leftPaddle.speed;
+  if (keys["s"] && leftPaddle.y < canvas.height - paddleHeight) leftPaddle.y += leftPaddle.speed;
+
+  if (keys["ArrowUp"] && rightPaddle.y > 0) rightPaddle.y -= rightPaddle.speed;
+  if (keys["ArrowDown"] && rightPaddle.y < canvas.height - paddleHeight) rightPaddle.y += rightPaddle.speed;
+}
+
+function moveBall() {
+  ball.x += ball.speedX;
+  ball.y += ball.speedY;
+
+  // Wall collision
+  if (ball.y <= 0 || ball.y >= canvas.height) {
+    ball.speedY *= -1;
+  }
+
+  // Paddle collision
+  if (
+    ball.x - ball.radius < leftPaddle.x + paddleWidth &&
+    ball.y > leftPaddle.y &&
+    ball.y < leftPaddle.y + paddleHeight
+  ) {
+    ball.speedX *= -1;
+  }
+
+  if (
+    ball.x + ball.radius > rightPaddle.x &&
+    ball.y > rightPaddle.y &&
+    ball.y < rightPaddle.y + paddleHeight
+  ) {
+    ball.speedX *= -1;
+  }
+
+  // Reset ball
+  if (ball.x < 0 || ball.x > canvas.width) {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.speedX *= -1;
+  }
+}
+
+// Main loop
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawNet();
+  drawRect(leftPaddle.x, leftPaddle.y, paddleWidth, paddleHeight);
+  drawRect(rightPaddle.x, rightPaddle.y, paddleWidth, paddleHeight);
+  drawBall(ball.x, ball.y, ball.radius);
+
+  movePaddles();
+  moveBall();
+
+  requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+</script>
+
+</body>
+</html>
