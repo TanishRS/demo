@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* ELEMENT selector – general rule */
+input {
+  border: 2px solid gray;
+  padding: 6px;
+}
+
+/* CLASS selector – group rule */
+.highlight {
+  border-color: orange;
+}
+
+/* ID selector – special rule */
+#username {
+  border-color: blue;
+}
+
+/* !important – final authority */
+.force {
+  border-color: red !important;
+}
+
+/* Extra colors */
+form {
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  font-family: Arial;
+}
+
+button {
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<form>
+  <h3>Student Registration</h3>
+
+  <!-- CONTROL 1 -->
+  <p>
+    Name:<br>
+    <input type="text" placeholder="Normal input">
+  </p>
+
+  <!-- CONTROL 2 -->
+  <p>
+    Email:<br>
+    <input type="email" class="highlight" placeholder="Class applied">
+  </p>
+
+  <!-- CONTROL 3 -->
+  <p>
+    Username:<br>
+    <input type="text" id="username" class="highlight"
+           placeholder="ID overrides class">
+  </p>
+
+  <!-- CONTROL 4 -->
+  <p>
+    Password:<br>
+    <input type="password" id="username" class="force"
+           placeholder="!important wins">
+  </p>
+
+  <!-- CONTROLS -->
+  <p>
+    Gender:<br>
+    <input type="radio" name="g"> Male
+    <input type="radio" name="g"> Female
+  </p>
+
+  <p>
+    Skills:<br>
+    <input type="checkbox"> HTML
+    <input type="checkbox"> CSS
+  </p>
+
+  <button>Register</button>
+</form>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Element selector */
+p {
+  color: red;
+}
+
+/* ID selector */
+#id {
+  color: blue;
+}
+
+/* !important overrides everything */
+.force {
+  color: green !important;
+}
+</style>
+</head>
+<body>
+
+<p>This is RED (element selector)</p>
+
+
+<p id="id" class="force">
+  This is GREEN (!important overrides ID)
+  <p id="id">
+  This is BLUE (ID selector overrides element)
+</p>
+
+</p>
+
+</body>
+</html>

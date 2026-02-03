@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Classr – Faculty Timetable Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      padding: 30px;
+    }
+    h1 {
+      color: #2563eb;
+    }
+    select {
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .day {
+      font-weight: bold;
+      color: #1f2937;
+    }
+    .subject {
+      color: #374151;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Faculty Timetable – Demo</h1>
+
+<label><b>Login as Faculty:</b></label><br>
+<select id="facultySelect">
+  <option value="sneha">Sneha Mam</option>
+  <option value="vinaya">Vinaya Mam</option>
+  <option value="shreya">Shreya Mam</option>
+</select>
+
+<div id="timetable"></div>
+
+<script>
+  // 🔹 SAME timetable data (management ne banaya)
+  const timetableData = [
+    {
+      facultyId: "sneha",
+      facultyName: "Sneha Mam",
+      subject: "JavaScript",
+      day: "Monday",
+      time: "10:00 – 11:00"
+    },
+    {
+      facultyId: "vinaya",
+      facultyName: "Vinaya Mam",
+      subject: "C++",
+      day: "Monday",
+      time: "11:00 – 12:00"
+    },
+    {
+      facultyId: "shreya",
+      facultyName: "Shreya Mam",
+      subject: "HTML",
+      day: "Tuesday",
+      time: "9:00 – 10:00"
+    },
+    {
+      facultyId: "shreya",
+      facultyName: "Shreya Mam",
+      subject: "CSS",
+      day: "Tuesday",
+      time: "10:00 – 11:00"
+    }
+  ];
+
+  const select = document.getElementById("facultySelect");
+  const timetableDiv = document.getElementById("timetable");
+
+  function renderTimetable() {
+    const facultyId = select.value;
+    timetableDiv.innerHTML = "";
+
+    const filtered = timetableData.filter(
+      slot => slot.facultyId === facultyId
+    );
+
+    filtered.forEach(slot => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="day">${slot.day} (${slot.time})</div>
+        <div class="subject">${slot.subject}</div>
+      `;
+      timetableDiv.appendChild(card);
+    });
+  }
+
+  select.addEventListener("change", renderTimetable);
+  renderTimetable();
+</script>
+
+</body>
+</html>
