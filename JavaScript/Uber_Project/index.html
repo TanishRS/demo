@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ride with Uber Clone</title>
+        <link rel="stylesheet" href="uber.css" />
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">Uber</div>
+
+            <nav class="nav">
+                <ul class="left-nav">
+                    <li><a href="#">Ride</a></li>
+                    <li><a href="#">Drive</a></li>
+                    <li><a href="#">Business</a></li>
+
+                    <li class="dropdown">
+                        <button id="aboutBtn">About ▾</button>
+                        <select id="aboutOptions">
+                            <option>About us</option>
+                            <option>Safety</option>
+                            <option>Diversity</option>
+                            <option>Careers</option>
+                            <option>Blog</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <ul class="right-nav">
+                    <li>🌐 EN</li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="/JavaScript/Uber_Project/login.html" class="btn">Log in</a></li>
+                    <li><a href="#" class="btn signup">Sign up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>Ride</h1>
+
+            <ul class="hero-nav">
+                <li class="active">Request a Ride</li>
+                <li>Reserve a Ride</li>
+                <li>See Prices</li>
+                <li>Explore Options</li>
+                <li>Airport Rides</li>
+            </ul>
+        </section>
+
+        <main class="content">
+            <div class="left">
+                <div class="location">
+                    📍 <span id="city">Pune, IN</span>
+                    <button id="changeCity">Change city</button>
+                </div>
+
+                <h2>Request a ride for now or later</h2>
+
+                <form class="ride-form" id="rideForm">
+                    <input type="text" id="name" placeholder="Enter your name" required />
+                    <input type="number" id="age" placeholder="Enter your age" min="18" required />
+                    <input type="text" id="pickup" placeholder="Enter pickup location" required />
+                    <input type="text" id="destination" placeholder="Enter destination" required />
+                    <input type="email" id="email" placeholder="Enter your email" required />
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required />
+                    <button type="submit" class="request-btn">Request Ride</button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    ✓ Ride request saved successfully!
+                </div>
+            </div>
+
+            <div class="right">
+                <img
+                    src="https://images.unsplash.com/photo-1519003722824-194d4455a60c"
+                    alt="Uber ride illustration"
+                />
+            </div>
+        </main>
+
+        <footer>
+            <p>©️ <span id="year"></span> Uber Clone. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

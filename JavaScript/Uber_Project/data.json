@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Vishal",
+        "age": 19,
+        "city": "Nerul",
+        "pickup": "Nerul Station",
+        "destination": "Mumbai Central",
+        "email": "vishal@example.com",
+        "phone": "9876543210",
+        "timestamp": "2026-02-02T10:30:00.000Z"
+    },
+    {
+        "name": "Somyajeet",
+        "age": 22,
+        "city": "Pune",
+        "pickup": "Hinjewadi",
+        "destination": "Koregaon Park",
+        "email": "somyajeet@example.com",
+        "phone": "8765432109",
+        "timestamp": "2026-02-02T11:15:00.000Z"
+    }
+]
