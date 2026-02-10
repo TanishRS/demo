@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Night Canvas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  canvas {
+    background: radial-gradient(circle at top, #312e81, #0f172a);
+    box-shadow: 0 20px 40px rgba(99,102,241,0.4);
+    border-radius: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas" width="2000" height="1000"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let textY = canvas.height * 0.48;
+let direction = 1;
+
+const starCount = Math.floor((canvas.width * canvas.height) / 50000);
+
+const stars = Array.from({ length: starCount }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  size: Math.random() * (canvas.width * 0.002) + 1,
+  speed: Math.random() * 0.4 + 0.2
+}));
+
+function drawBackground() {
+  const g = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  g.addColorStop(0, "#1e1b4b");
+  g.addColorStop(1, "#020617");
+
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawText() {
+  ctx.textAlign = "center";
+  ctx.shadowColor = "rgba(255,255,255,0.5)";
+  ctx.shadowBlur = 12;
+
+  let titleSize = canvas.width * 0.035;
+  let subSize = canvas.width * 0.015;
+
+  ctx.font = `600 ${titleSize}px Playfair Display`;
+  ctx.fillStyle = "#e0e7ff";
+  ctx.fillText("Hello 2026 ✨", canvas.width/2, textY);
+
+  ctx.font = `300 ${subSize}px Poppins`;
+  ctx.fillText("What's Up? What are the Plans..", canvas.width/2, textY + titleSize * 1.2);
+
+  ctx.shadowBlur = 0;
+}
+
+function drawStars() {
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    s.y += s.speed;
+
+    if (s.y > canvas.height) {
+      s.y = 0;
+      s.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  drawBackground();
+  drawStars();
+  drawText();
+
+    let centerY = canvas.height * 0.48;
+    textY += canvas.height * 0.0003 * direction;
+
+    if (textY > centerY + 15 || textY < centerY - 15)
+    direction *= -1;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="card">
+  <h2>🌤️ Weather</h2>
+  <h3>Mumbai</h3>
+
+  <div id="loader" class="loader"></div>
+
+  <div id="weatherBox" class="hidden">
+    <p id="temp">-- °C</p>
+    <p id="wind">Wind: -- km/h</p>
+  </div>
+
+  <button onclick="getWeather()">Refresh</button>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

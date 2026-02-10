@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Emerald Gradient Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background Gradient */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #051F20,
+    #0B2B26,
+    #163832,
+    #235347
+  );
+}
+
+/* Glass Card */
+.form-card {
+  width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(218, 241, 222, 0.12);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(142, 182, 155, 0.25);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  color: #DAF1DE;
+}
+
+/* Title */
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  color: #8EB69B;
+}
+
+/* Inputs */
+input, textarea, select {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #DAF1DE;
+  color: #051F20;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 3px #8EB69B55;
+  transform: translateY(-1px);
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    #8EB69B,
+    #235347
+  );
+  color: #DAF1DE;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  filter: brightness(1.1);
+}
+
+/* Footer Text */
+.small-text {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #8EB69B;
+}
+
+.small-text a {
+  color: #DAF1DE;
+  text-decoration: none;
+}
+
+.small-text a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-card">
+  <h2>Contact Form</h2>
+
+  <form>
+    <label>Full Name</label>
+    <input type="text" placeholder="Enter your name">
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email">
+
+    <label>Subject</label>
+    <select>
+      <option>General Inquiry</option>
+      <option>Support</option>
+      <option>Business</option>
+    </select>
+
+    <label>Message</label>
+    <textarea rows="4" placeholder="Write your message"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="small-text">
+    We respect your privacy
+  </div>
+</div>
+
+</body>
+</html>
