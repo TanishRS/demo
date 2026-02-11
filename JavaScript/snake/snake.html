@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Game</title>
+
+<style>
+body {
+    background-color: rgb(23, 220, 20);
+    border: 2px solid white;
+    text-align: center;
+    font-family: sans-serif;
+}
+canvas {
+    background: black;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🐍 Snake Game</h2>
+<p>Use Arrow Keys to Move the Snake</p>
+<h3 id="score">Score: 0</h3>
+
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+const box = 20;
+let snake = [{x:200, y:200}];
+let direction = "RIGHT";
+let score = 0;
+
+let food = randomFood();
+
+function randomFood() {
+    return {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+    }
+}
+
+document.addEventListener('keydown', changeDirection);
+
+function changeDirection(e) {
+    if (!musicStarted) {
+        bgMusic.play().catch(()=>{});
+        musicStarted = true;
+    }
+
+    if (e.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    else if (e.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    else if (e.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    else if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+}
+
+function draw() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "lime";
+    snake.forEach(part => {
+        ctx.fillRect(part.x, part.y, box, box);
+    });
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x, food.y, box, box);
+
+    let headX = snake[0].x;
+    let headY = snake[0].y;
+
+    if (direction === "UP") headY -= box;
+    if (direction === "DOWN") headY += box;
+    if (direction === "LEFT") headX -= box;
+    if (direction === "RIGHT") headX += box;
+
+    if (headX === food.x && headY === food.y) {
+        score++;
+        document.getElementById('score').innerText = "Score: " + score;
+        food = randomFood();
+    } else {
+        snake.pop();
+    }
+
+    const newHead = {x: headX, y: headY};
+    const bgMusic = document.getElementById("bgMusic");
+    let musicStarted = false;
+
+    if (
+    headX < 0 || headX >= canvas.width ||
+    headY < 0 || headY >= canvas.height ||
+    snake.some(part => part.x === newHead.x && part.y === newHead.y)
+) {
+    clearInterval(game);
+
+
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
+
+    alert("Game Over! Score: " + score);
+    return;
+}
+
+    snake.unshift(newHead);
+}
+
+let game = setInterval(draw, 300);
+</script>
+
+<audio id="bgMusic" src="Nagin Dance Bajatey Raho 320 Kbps.mp3" loop></audio>
+
+</body>
+</html>
